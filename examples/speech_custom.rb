@@ -20,6 +20,15 @@ client_id = 'ENTER VALUE!'
 # Enter the value from 'Secret' field
 client_secret = 'ENTER VALUE!'
 
+# Add an audio file to convert to text
+AUDIO = "/path/to/audio/file"
+
+# Add a dictionary file to influence the conversion
+DICT = "/path/to/dictionary/file"
+
+# Add a grammar file to influence the conversion
+GRAMMAR = "/path/to/grammar/file"
+
 # Set the fqdn to default of https://api.att.com
 fqdn = 'https://api.att.com'
 
@@ -28,20 +37,17 @@ clientcred = Auth::ClientCred.new(fqdn,
                                   client_id,
                                   client_secret)
 
-# Get OAuth token using the SPEECH scope
-token = clientcred.createToken('SPEECH')
+# Get OAuth token using the speech custom scope
+token = clientcred.createToken('STTC')
 
-# Add an audio file to convert to text
-AUDIO = "/path/to/audio/file"
-
-# Create service for interacting with the SPEECH api
+# Create service for interacting with the SPEECH/STTC api
 speech = Service::SpeechService.new(fqdn, token)
 
 # Use exception handling to see if anything went wrong with the request
 begin
 
   # Send a message to the addresses specified
-  response = speech.toText(AUDIO)
+  response = speech.toText(AUDIO, DICT, GRAMMAR)
 
 rescue Service::ServiceException => e
 

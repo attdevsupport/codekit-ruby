@@ -2,6 +2,10 @@
 
 Library for easy access to AT&T's cloud services.
 
+## Requirements
+
+Ruby 1.9.3 or higher (Ruby 2.1 recommended)
+
 ## Installation
 ### Easy install
 
@@ -27,6 +31,22 @@ You can install per user by issuing:
     $ gem install --user-install -l pkg/att-codekit-version.gem
 
 Substituting version for the compiled version to install
+
+## Documentation
+
+The Codekit contains inline documentation, which can be generated using
+yard doc via the yard command. Install by running
+
+    $ gem install yard
+
+For example, to generate the documentation which can then be viewed via browser
+run:
+  
+    $ yard server
+
+Then goto the specified address in your preferred web browser, usually:
+
+    http://localhost:8808
 
 ## Usage
 
@@ -69,3 +89,4 @@ Now to create an api service we just pass the oauth token to the api we want to 
     
     immn = IMMNService.new(fqdn, authToken)
     sms = SMSService.new(fqdn, clientToken)
+
