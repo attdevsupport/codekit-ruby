@@ -176,7 +176,7 @@ module Att
       end
 
       class MyContactInfo < Contact
-        def createFromParsedJson(json)
+        def self.createFromParsedJson(json)
           root = (json["myInfo"] || json)
           super(root)
         end
@@ -290,7 +290,7 @@ module Att
         def self.createFromParsedJson(json)
           return Array.new if json.nil?
 
-          root = (json["emails"] || json)
+          root = (json["email"] || json)
 
           emails = Array.new
           Array(root).each do |email|
@@ -363,7 +363,7 @@ module Att
         def self.createFromParsedJson(json)
           return Array.new if json.nil?
 
-          root = (json["ims"] || json)
+          root = (json["im"] || json)
 
           ims = Array.new
           Array(root).each do |im|
@@ -436,7 +436,7 @@ module Att
 
           phones = Array.new
           Array(root).each do |phone|
-            phones << Phones.createFromParsedJson(phone)
+            phones << Phone.createFromParsedJson(phone)
           end
           phones
         end
@@ -498,7 +498,7 @@ module Att
         def self.createFromParsedJson(json)
           return Array.new if json.nil?
 
-          root = (json["weburls"] || json)
+          root = (json["webUrl"] || json)
 
           weburls = Array.new
           Array(root).each do |weburl|
