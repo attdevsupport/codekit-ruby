@@ -29,6 +29,8 @@ module Att
         # @param user_agent [#to_s] the user_agent being used for request
         # @param udid [#to_s] a unique identifier for the user
         # @param optional [Hash] additional arguments to forward to the api
+        #   If value is an array it will automagically be converted to a comma
+        #   separated string
         #
         # @return [Model::ADSResponse, Model::NoAds] An ads container object 
         def getAds(category, user_agent, udid, optional={})
@@ -45,6 +47,9 @@ module Att
           if optional
             optional.each do |key, value|
               if value && !value.empty?
+                if value.is_a? Array
+                  value = value.join(",")
+                end
                 url << "&#{CGI.escape(key.to_s)}=#{CGI.escape(value.to_s)}"
               end
             end

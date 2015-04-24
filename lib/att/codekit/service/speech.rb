@@ -72,7 +72,7 @@ module Att
 
           headers[:X_SpeechSubContext] = subcontext if (subcontext && context == "Gaming")
 
-          headers[:Content_Transfer_Encoding] = 'chunked' if chunked 
+          headers[:Transfer_Encoding] = 'chunked' if chunked 
 
           url = "#{@fqdn}#{STANDARD_SERVICE_URL}"
 
