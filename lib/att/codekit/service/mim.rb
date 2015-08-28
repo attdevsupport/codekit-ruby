@@ -276,28 +276,12 @@ module Att
         alias_method :updateMessageIndex, :createIndex
         alias_method :createMessageIndex, :createIndex
 
-        # Get the details associated with notifications
-        #
-        # @param queues [#to_s, Array<#to_s>] the resource(s) to subscribe
-        #
-        # @raise [ServiceException] contains the api response in case of failure
-        # @return [Model::NotificationDetails] the notification details object
+        # @deprecated This API call is no longer supported.
+        # @see https://developer.att.com/apis/in-app-messaging/docs#notifications
+        #   Migrating to the new notification system.
+        # @raise [ServiceException] API call no longer supported
         def getNotificationDetails(queues)
-          queues = Array(queues).map{|q| q.upcase}.join(",")
-
-          url = "#{@fqdn}#{NOTIFICATION_URL}"
-          url << "?queues=#{CGI.escape(queues.to_s)}"
-
-          headers = {
-            :Accept => "application/json",
-          }
-
-          begin
-            response = self.get(url, headers)
-          rescue RestClient::Exception => e
-            raise(ServiceException, e.response || e.message, e.backtrace)
-          end
-          Model::NotificationDetails.createFromJson(response)
+          raise(ServiceException, "API call is no longer supported, to migrate see https://developer.att.com/apis/in-app-messaging/docs#notifications")
         end
 
         # Mark a message or list of messages to new unread status 

@@ -242,15 +242,12 @@ module Att
         end
       end
 
-      require_relative "service/aab" 
       require_relative "service/ads" 
       require_relative "service/speech" 
       require_relative "service/tts" 
-      require_relative "service/dc" 
       require_relative "service/mim" 
       require_relative "service/immn" 
       require_relative "service/sms" 
-      require_relative "service/mms" 
       require_relative "service/payment" 
       require_relative "service/webhooks" 
 

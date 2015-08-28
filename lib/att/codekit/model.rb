@@ -17,11 +17,8 @@ module Att
   module Codekit
     module Model
 
-      require_relative "model/aab" 
       require_relative "model/ads" 
-      require_relative "model/dc" 
       require_relative "model/immn" 
-      require_relative "model/mms" 
       require_relative "model/payment" 
       require_relative "model/payment_notification" 
       require_relative "model/simple_responses" 

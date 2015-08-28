@@ -47,7 +47,7 @@ module Att
 
           sms_request = { 
             :address => parsed_addresses, 
-            :message => CGI.escape(message), 
+            :message => message, 
             :notifyDeliveryStatus => notify
           }
 
