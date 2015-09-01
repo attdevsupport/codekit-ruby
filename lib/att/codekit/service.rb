@@ -193,7 +193,7 @@ module Att
             part[:headers].each do |key, value|
               body += "#{key}: #{value}\r\n"
             end
-            body += "\r\n#{part[:data]}\r\n\r\n"
+            body += "\r\n#{part[:data].force_encoding("UTF-8")}\r\n\r\n"
           end
           body += "--#{boundary}--\r\n"
         end

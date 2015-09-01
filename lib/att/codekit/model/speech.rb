@@ -20,6 +20,7 @@ module Att
         #
         # @return [SpeechResponse] a parsed object
         def self.createFromJson(json)
+	  #puts json
           self.createFromParsedJson(JSON.parse(json))
         end
 
@@ -114,9 +115,10 @@ module Att
         def self.createFromParsedJson(json)
           list = Array.new
           if json
-            Array(json["OutComposite"]).each do |nlu|
-              list << new(nlu["Grammar"], nlu["Out"] )
-            end
+            #Array(json["OutComposite"]).each do |nlu|
+              #list << new(nlu["Grammar"], nlu["Out"] )
+            #end
+	    list << new("default.grxml",json["Out"])
           end
           list
         end
