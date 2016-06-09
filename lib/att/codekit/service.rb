@@ -242,8 +242,6 @@ module Att
         end
       end
 
-      require_relative "service/speech" 
-      require_relative "service/tts" 
       require_relative "service/mim" 
       require_relative "service/immn" 
       require_relative "service/sms" 

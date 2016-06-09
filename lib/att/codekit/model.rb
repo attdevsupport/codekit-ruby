@@ -21,7 +21,6 @@ module Att
       require_relative "model/payment" 
       require_relative "model/payment_notification" 
       require_relative "model/simple_responses" 
-      require_relative "model/speech" 
       require_relative "model/mim" 
       require_relative "model/notification_channel" 
       require_relative "model/notification_subscription" 
