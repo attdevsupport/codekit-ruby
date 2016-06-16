@@ -11,7 +11,7 @@ Ruby 1.9.3 or higher (Ruby 2.1 recommended)
 
 Add the server host of the gem file:
 
-    $ gem sources --add http://lprod.code-api-att.com:8808
+    $ gem sources --add https://lprod.code-api-att.com/gemserver/
 
 Install the gem:
 
